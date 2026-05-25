@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacybeleid — Piekerkwartier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #3a7fca;
+      --blue-light: #e8f1fb;
+      --text: #111827;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #f7f9fc;
+      --white: #ffffff;
+      --radius: 14px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.05);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(145deg, #c8ddf5 0%, #deeaf8 50%, #eaf3fb 100%);
+      padding: 40px 24px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(255,255,255,0.5) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+
+    .back-link:hover { opacity: 0.75; }
+
+    header h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    header .subtitle {
+      font-size: 0.88rem;
+      color: #4b5e72;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── Summary badges ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 480px) {
+      .summary-grid { grid-template-columns: 1fr; }
+    }
+
+    .summary-badge {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .summary-badge .badge-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .summary-badge .badge-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .summary-badge .badge-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+
+    /* ── Policy sections ── */
+    .policy-section {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px 24px;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .policy-section h2 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .policy-section h2 .section-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .policy-section p,
+    .policy-section li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .policy-section ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .policy-section ul li {
+      padding: 5px 0 5px 20px;
+      position: relative;
+    }
+
+    .policy-section ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .policy-section p + p {
+      margin-top: 10px;
+    }
+
+    /* ── Contact ── */
+    .contact-row {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.04);
+      margin-top: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .contact-row { flex-direction: column; align-items: flex-start; }
+    }
+
+    .contact-row p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .contact-row p strong {
+      color: var(--text);
+      display: block;
+      font-size: 0.92rem;
+      margin-bottom: 2px;
+    }
+
+    .email-btn {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 11px 22px;
+      border-radius: 50px;
+      white-space: nowrap;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .email-btn:hover {
+      background: #2c6aab;
+      transform: translateY(-1px);
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 28px 24px;
+      color: #b0b8c4;
+      font-size: 0.78rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="back-link" href="index.html">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 2 4 7 9 12"/></svg>
+      Terug naar support
+    </a>
+    <h1>Privacybeleid</h1>
+    <p class="subtitle">Laatst bijgewerkt: mei 2025</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="summary-grid">
+    <div class="summary-badge">
+      <div class="badge-icon">🔒</div>
+      <div class="badge-label">Geen dataverzameling</div>
+      <div class="badge-sub">We verzamelen niets</div>
+    </div>
+    <div class="summary-badge">
+      <div class="badge-icon">📱</div>
+      <div class="badge-label">Lokale opslag</div>
+      <div class="badge-sub">Alles blijft op jouw telefoon</div>
+    </div>
+    <div class="summary-badge">
+      <div class="badge-icon">👁️</div>
+      <div class="badge-label">Volledig privé</div>
+      <div class="badge-sub">Niemand anders heeft toegang</div>
+    </div>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-icon">📋</span> Over dit beleid</h2>
+    <p>Dit privacybeleid beschrijft hoe de Piekerkwartier-app omgaat met jouw gegevens. De korte samenvatting: we verzamelen geen gegevens, versturen geen gegevens en hebben geen toegang tot wat jij in de app invoert.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-icon">🚫</span> Geen gegevensverzameling</h2>
+    <p>Piekerkwartier verzamelt geen persoonlijke gegevens. We versturen niets naar externe servers. De volgende gegevens worden <strong>niet</strong> verzameld:</p>
+    <ul>
+      <li>Piekeronderwerpen of notities die je invoert</li>
+      <li>Jouw piekgeschiedenis of sessieresultaten</li>
+      <li>Naam, e-mailadres of andere contactgegevens</li>
+      <li>Locatiegegevens</li>
+      <li>Gebruiksstatistieken of analytics</li>
+      <li>Apparaatinformatie of advertentie-ID's</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-icon">📱</span> Lokale opslag</h2>
+    <p>Alle gegevens die je in de app invoert — je piekeronderwerpen, sessiegeschiedenis en instellingen — worden uitsluitend lokaal opgeslagen op jouw eigen apparaat.</p>
+    <p>Deze gegevens verlaten je apparaat nooit. Er is geen account, geen cloudopslag en geen synchronisatie met externe systemen. Als je de app verwijdert, worden alle gegevens permanent verwijderd.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-icon">🔐</span> Geen toegang door derden</h2>
+    <p>Niemand anders dan jijzelf heeft toegang tot de gegevens in de app. Dat geldt voor:</p>
+    <ul>
+      <li>De ontwikkelaars van Piekerkwartier</li>
+      <li>Apple of andere platformaanbieders</li>
+      <li>Adverteerders of analysebedrijven</li>
+      <li>Enige andere derde partij</li>
+    </ul>
+    <p>Er worden geen gegevens gedeeld, verkocht of overgedragen aan derden.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-icon">🍪</span> Cookies en tracking</h2>
+    <p>De app gebruikt geen cookies, trackers, pixels of vergelijkbare technologieën. Er vindt geen enkele vorm van gebruikerstracking plaats.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-icon">👶</span> Kinderen</h2>
+    <p>Omdat we geen gegevens verzamelen, zijn er geen bijzondere risico's voor minderjarigen. De app is bedoeld voor volwassenen en wordt niet specifiek gericht op kinderen.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2><span class="section-icon">🔄</span> Wijzigingen in dit beleid</h2>
+    <p>Als dit privacybeleid ooit wordt gewijzigd, zal de nieuwe versie op deze pagina worden gepubliceerd. Zolang de app geen gegevens verzamelt of verstuurt, verandert de kern van dit beleid niet.</p>
+  </div>
+
+  <div class="contact-row">
+    <p>
+      <strong>Vragen over privacy?</strong>
+      Neem gerust contact met ons op via e-mail.
+    </p>
+    <a class="email-btn" href="mailto:piekerkwartier.team@gmail.com">Stuur een e-mail</a>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2025 Piekerkwartier &nbsp;·&nbsp; <a href="index.html">Support</a>
+</footer>
+
+</body>
+</html>
