@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piekerkwartier — Support</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f4f8;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(160deg, #b8d4f0 0%, #d6e8f7 100%);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    header .app-icon {
+      width: 72px;
+      height: 72px;
+      background: #3a7fca;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 36px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1.05rem;
+      color: #4a5568;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Main content */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+    }
+
+    /* Section title */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 16px;
+      margin-top: 40px;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    /* Cards */
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+
+    /* FAQ accordion */
+    details.faq {
+      background: #fff;
+      border-radius: 16px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+
+    details.faq summary {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 18px 20px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    details.faq summary::-webkit-details-marker { display: none; }
+
+    details.faq summary::after {
+      content: '›';
+      font-size: 1.4rem;
+      color: #3a7fca;
+      transition: transform 0.2s;
+      transform: rotate(90deg);
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+
+    details.faq[open] summary::after {
+      transform: rotate(270deg);
+    }
+
+    details.faq .faq-body {
+      padding: 0 20px 18px;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 14px;
+    }
+
+    /* Contact card */
+    .contact-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+
+    .contact-card p {
+      color: #4a5568;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .contact-card a.email-btn {
+      display: inline-block;
+      background: #3a7fca;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 50px;
+      transition: background 0.15s;
+    }
+
+    .contact-card a.email-btn:hover {
+      background: #2c6aab;
+    }
+
+    .contact-card .email-note {
+      margin-top: 12px;
+      font-size: 0.82rem;
+      color: #999;
+    }
+
+    /* Feature list */
+    .feature-list {
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .feature-list li:last-child { border-bottom: none; }
+
+    .feature-list .icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #aaa;
+      font-size: 0.82rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="app-icon">⏰</div>
+  <h1>Piekerkwartier</h1>
+  <p>Plan je dagelijkse piekertijd en houd je zorgen onder controle — één kwartier per dag.</p>
+</header>
+
+<main>
+
+  <!-- Wat is het? -->
+  <h2 class="section-title">Wat is Piekerkwartier?</h2>
+  <div class="card">
+    <ul class="feature-list">
+      <li>
+        <div class="icon" style="background:#e8f0fb;">⏰</div>
+        <span><strong>Plan een vast piekmoment</strong> — stel één vaste tijd per dag in waarop je bewust over je zorgen nadenkt.</span>
+      </li>
+      <li>
+        <div class="icon" style="background:#eaf5ea;">📝</div>
+        <span><strong>Noteer je zorgen overdag</strong> — bewaar onderwerpen die in je opkomen zodat je ze kunt uitstellen tot het piekmoment.</span>
+      </li>
+      <li>
+        <div class="icon" style="background:#fff3e0;">⚡</div>
+        <span><strong>Gestructureerd 15 minuten piekeren</strong> — ga per onderwerp na of het beïnvloedbaar is en schrijf een concrete actie op.</span>
+      </li>
+      <li>
+        <div class="icon" style="background:#f3eeff;">🕐</div>
+        <span><strong>Bekijk je geschiedenis</strong> — blader terug door eerdere piekersessies en ontdek patronen in je zorgen.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- FAQ -->
+  <h2 class="section-title">Veelgestelde vragen</h2>
+
+  <details class="faq" open>
+    <summary>Waarom een piekerkwartier?</summary>
+    <div class="faq-body">
+      Piekeren betekent dat je steeds opnieuw over hetzelfde nadenkt en er moeilijk mee kunt stoppen. Dit kan zorgen voor onrust en slaapproblemen. Een vast piekerkwartier helpt je om meer grip te krijgen op je gedachten en het piekeren te beperken tot een vast moment per dag.
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>Hoe werkt het?</summary>
+    <div class="faq-body">
+      1. Stel een dagelijks piekmoment in (bijv. 20:00).<br>
+      2. Noteer onderwerpen die overdag in je hoofd opkomen in de app.<br>
+      3. Op het vaste moment start je het piekerkwartier en werk je elk onderwerp door: is het beïnvloedbaar? Zo ja, noteer een concrete actie. Zo nee, accepteer dat je er nu niets aan kunt doen.<br>
+      4. Na 15 minuten sluit je de sessie af.
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>Wat doe je tijdens het piekerkwartier?</summary>
+    <div class="faq-body">
+      Per onderwerp stel je jezelf twee vragen: (1) Is dit beïnvloedbaar — kan ik hier iets aan doen? (2) Welke actie ga ik nemen? Door zo gestructureerd te werken, geef je je zorgen aandacht zonder er in te blijven hangen.
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>Wat als piekeren moeilijk uit te stellen is?</summary>
+    <div class="faq-body">
+      Dat is heel normaal, zeker in het begin. Probeer jezelf vriendelijk te herinneren: "Ik mag hier straks over nadenken, op mijn piekmoment." Schrijf het onderwerp vast op in de app zodat je niets vergeet. Het lukt beter naarmate je de gewoonte opbouwt.
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>Wanneer is het niet geschikt?</summary>
+    <div class="faq-body">
+      Piekerkwartier is bedoeld als ondersteuning bij alledaagse piekergedachten. Het is geen vervanging voor professionele hulp. Heb je last van ernstige angstklachten, somberheid of andere psychische klachten? Neem dan contact op met je huisarts of een psycholoog.
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>Privacy — wat gebeurt er met mijn gegevens?</summary>
+    <div class="faq-body">
+      Al je gegevens worden uitsluitend lokaal op jouw apparaat opgeslagen. Er worden geen persoonlijke gegevens naar externe servers verstuurd. Jouw zorgen blijven privé.
+    </div>
+  </details>
+
+  <!-- Contact -->
+  <h2 class="section-title">Contact & Support</h2>
+  <div class="contact-card">
+    <p>Heb je een vraag, een suggestie of een technisch probleem? We helpen je graag verder. Stuur ons een e-mail en we reageren zo snel mogelijk.</p>
+    <a class="email-btn" href="mailto:piekerkwartier.team@gmail.com">
+      ✉ Stuur een e-mail
+    </a>
+    <p class="email-note">piekerkwartier.team@gmail.com</p>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2025 Piekerkwartier
+</footer>
+
+</body>
+</html>
